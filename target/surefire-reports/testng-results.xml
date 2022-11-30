@@ -2,42 +2,42 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-12-01T00:22:11 IST" name="Suite" finished-at="2022-12-01T00:22:40 IST" duration-ms="29522">
+  <suite started-at="2022-12-01T00:58:10 IST" name="Suite" finished-at="2022-12-01T00:58:38 IST" duration-ms="28140">
     <groups>
     </groups>
-    <test started-at="2022-12-01T00:22:11 IST" name="Test" finished-at="2022-12-01T00:22:40 IST" duration-ms="29522">
+    <test started-at="2022-12-01T00:58:10 IST" name="Test" finished-at="2022-12-01T00:58:38 IST" duration-ms="28140">
       <class name="com.automations.testcases.LetGoTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automations.testcases.LetGoTest@185a6e9]" started-at="2022-12-01T00:22:22 IST" name="setup" finished-at="2022-12-01T00:22:32 IST" duration-ms="9502" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.automations.testcases.LetGoTest@185a6e9]" started-at="2022-12-01T00:58:24 IST" name="setup" finished-at="2022-12-01T00:58:29 IST" duration-ms="5586" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="clickOnButton()[pri:2, instance:com.automations.testcases.LetGoTest@185a6e9]" started-at="2022-12-01T00:22:32 IST" name="clickOnButton" finished-at="2022-12-01T00:22:40 IST" duration-ms="8350" status="PASS">
+        <test-method signature="clickOnButton()[pri:2, instance:com.automations.testcases.LetGoTest@185a6e9]" started-at="2022-12-01T00:58:29 IST" name="clickOnButton" finished-at="2022-12-01T00:58:38 IST" duration-ms="8518" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clickOnButton -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.automations.testcases.LetGoTest@185a6e9]" started-at="2022-12-01T00:22:40 IST" name="teardown" finished-at="2022-12-01T00:22:40 IST" duration-ms="119" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.automations.testcases.LetGoTest@185a6e9]" started-at="2022-12-01T00:58:38 IST" name="teardown" finished-at="2022-12-01T00:58:38 IST" duration-ms="179" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="TearDown()[pri:0, instance:com.automations.testcases.LetGoTest@185a6e9]" started-at="2022-12-01T00:22:40 IST" name="TearDown" finished-at="2022-12-01T00:22:40 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="TearDown()[pri:0, instance:com.automations.testcases.LetGoTest@185a6e9]" started-at="2022-12-01T00:58:38 IST" name="TearDown" finished-at="2022-12-01T00:58:38 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
       </class> <!-- com.automations.testcases.LetGoTest -->
       <class name="com.automations.testcases.Password">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automations.testcases.Password@6743e411]" started-at="2022-12-01T00:22:11 IST" name="setup" finished-at="2022-12-01T00:22:18 IST" duration-ms="7059" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.automations.testcases.Password@6743e411]" started-at="2022-12-01T00:58:10 IST" name="setup" finished-at="2022-12-01T00:58:20 IST" duration-ms="9852" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="password()[pri:1, instance:com.automations.testcases.Password@6743e411]" started-at="2022-12-01T00:22:18 IST" name="password" finished-at="2022-12-01T00:22:22 IST" duration-ms="4182" status="PASS">
+        <test-method signature="password()[pri:1, instance:com.automations.testcases.Password@6743e411]" started-at="2022-12-01T00:58:20 IST" name="password" finished-at="2022-12-01T00:58:23 IST" duration-ms="3689" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- password -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.automations.testcases.Password@6743e411]" started-at="2022-12-01T00:22:22 IST" name="teardown" finished-at="2022-12-01T00:22:22 IST" duration-ms="257" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.automations.testcases.Password@6743e411]" started-at="2022-12-01T00:58:23 IST" name="teardown" finished-at="2022-12-01T00:58:24 IST" duration-ms="239" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="TearDown()[pri:0, instance:com.automations.testcases.Password@6743e411]" started-at="2022-12-01T00:22:22 IST" name="TearDown" finished-at="2022-12-01T00:22:22 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="TearDown()[pri:0, instance:com.automations.testcases.Password@6743e411]" started-at="2022-12-01T00:58:24 IST" name="TearDown" finished-at="2022-12-01T00:58:24 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->

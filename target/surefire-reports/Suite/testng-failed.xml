@@ -11,6 +11,22 @@
           <include name="teardown"/>
         </methods>
       </class> <!-- com.automations.testcases.AttractiveOffersTest -->
+      <class name="com.automations.testcases.Password">
+        <methods>
+          <include name="teardown"/>
+          <include name="TearDown"/>
+          <include name="setup"/>
+          <include name="password"/>
+        </methods>
+      </class> <!-- com.automations.testcases.Password -->
+      <class name="com.automations.testcases.LetGoTest">
+        <methods>
+          <include name="TearDown"/>
+          <include name="setup"/>
+          <include name="teardown"/>
+          <include name="clickOnButton"/>
+        </methods>
+      </class> <!-- com.automations.testcases.LetGoTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

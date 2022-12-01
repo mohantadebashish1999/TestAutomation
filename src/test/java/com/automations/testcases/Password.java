@@ -59,7 +59,7 @@ public class Password extends Base {
 		pp.EnterPassword("Flp@2022#$");
 		boolean result= lp.ValidateLetsGoPage();
 		Assert.assertTrue(result); 
-		log.info("*****************Test case passed..12 ******************");
+		log.info("*****************Test case passed..12 test ******************");
 		
 		
 

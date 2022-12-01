@@ -1,2 +1,3 @@
-#Ignore test-output folder
-test-output
+#Ignore test-output folder and log files
+*.log
+test-output/

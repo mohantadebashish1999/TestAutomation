@@ -6,7 +6,7 @@
       
       <class name="com.automations.testcases.Password"/>   
        <class name="com.automations.testcases.LetGoTest"/> 
-       <class name="com.automations.testcases.AttractiveOffersTest"/> 
+       
 
       
      

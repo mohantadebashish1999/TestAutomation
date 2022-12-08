@@ -1,3 +1,21 @@
 #Ignore test-output folder and log files
-*.log
-test-output/
+application.log
+target/surefire-reports/emailable-report.html
+target/surefire-reports/index.html
+target/surefire-reports/TEST-TestSuite.xml
+target/surefire-reports/testng-failed.xml
+target/surefire-reports/testng-results.xml
+target/surefire-reports/TestSuite.txt
+target/surefire-reports/Suite/Test.html
+target/surefire-reports/Suite/Test.xml
+target/surefire-reports/Suite/testng-failed.xml
+target/surefire-reports/junitreports/TEST-com.automations.testcases.AttractiveOffersTest.xml
+target/surefire-reports/junitreports/TEST-com.automations.testcases.LetGoTest.xml
+target/surefire-reports/junitreports/TEST-com.automations.testcases.Password.xml
+target/surefire-reports/old/index.html
+target/surefire-reports/old/Suite/methods-alphabetical.html
+target/surefire-reports/old/Suite/methods.html
+target/surefire-reports/old/Suite/toc.html
+target/surefire-reports/junitreports/TEST-com.automations.testcases.AttractiveOffersTest.xml
+target/surefire-reports/junitreports/TEST-com.automations.testcases.LetGoTest.xml
+target/surefire-reports/junitreports/TEST-com.automations.testcases.Password.xml

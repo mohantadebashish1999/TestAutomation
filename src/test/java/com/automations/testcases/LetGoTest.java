@@ -27,15 +27,15 @@ public class LetGoTest extends Base {
 	
 	public void clickOnButton() throws InterruptedException
 	{
-		PasswordPage pp = PageFactory.initElements(driver, PasswordPage.class);
+		PasswordPage passwordpage = PageFactory.initElements(driver, PasswordPage.class);
 
-		LetsGoPage lgp = PageFactory.initElements(driver, LetsGoPage.class);
+		LetsGoPage letsgopage = PageFactory.initElements(driver, LetsGoPage.class);
 		//AttractiveOfferPage afp = PageFactory.initElements(driver, AttractiveOfferPage.class);
 		
-		
-		pp.EnterPassword("Flp@2022#$");
+		//entering password. 
+		passwordpage.enterPassword("Flp@2022#$");
 		//Thread.sleep(2000);
-		lgp.clickOnTheLetsGoButton();
+		letsgopage.clickOnTheLetsGoButton();
 		System.out.println("clicked");
 		Thread.sleep(5000);
 		String actualURL= driver.getCurrentUrl();

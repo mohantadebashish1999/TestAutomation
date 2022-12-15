@@ -12,11 +12,11 @@ import org.openqa.selenium.support.PageFactory;
 public class AddToCartPage extends Base {
 	
 	
-	@FindBy(xpath="(//span[@class=\"p-button-label\"])[1]") WebElement AddToCart1st;
+	@FindBy(xpath="(//span[@class=\"p-button-label\"])[1]") WebElement firstProduct;
 	
-	@FindBy(xpath="(//span[@class=\"p-button-label\"])[2]") WebElement AddToCart2;
+	@FindBy(xpath="(//span[@class=\"p-button-label\"])[2]") WebElement secondProduct;
 	
-	@FindBy(xpath="//span[contains(text(),'Weiter')]") WebElement Continuebtn;
+	@FindBy(xpath="//span[contains(text(),'Weiter')]") WebElement continueButton;
 	
 	@FindBy(xpath="//span[contains(text(),'✔ Im Warenkorb')]") WebElement Added;
 	
@@ -30,18 +30,18 @@ public class AddToCartPage extends Base {
 	PageFactory.initElements(driver, this);  
 	}
 	
-	public void AddProduct1()
+	public void addFirstProduct()
 	{
-		AddToCart1st.click();
+		firstProduct.click();
 	}
 	
-	public void AddProduct2()
+	public void addSecondProduct()
 	{
-		AddToCart2.click();
+		secondProduct.click();
 	}
 	public void clickOnTheContinueButton()
 	{
-		Continuebtn.click();
+		continueButton.click();
 	}
 	
 	public boolean validateAdd()
@@ -51,14 +51,14 @@ public class AddToCartPage extends Base {
 	}
 	
 	
-	public String gettext()
+	public String getBtntextof1stProduct()
 	{
-		return AddToCart1st.getText();
+		return firstProduct.getText();
 	}
 	
-	public String gettext2()
+	public String getBtntextof2ndProduct()
 	{
-		return AddToCart2.getText();
+		return secondProduct.getText();
 	}
 	
 	public int countElement()

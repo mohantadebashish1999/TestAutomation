@@ -9,7 +9,7 @@ public class AttractiveOfferPage extends Base {
 	
 	@FindBy(xpath="//span[contains(text(),'Weiter')]") WebElement continuebtn;
 	
-	@FindBy(xpath="//span[contains(text(),'Direkt zur Registrierung')]") WebElement GoToRegistration;
+	@FindBy(xpath="//span[contains(text(),'Direkt zur Registrierung')]") WebElement GoToRegistrationbtn;
 	
 	public AttractiveOfferPage()
 	{
@@ -28,7 +28,7 @@ public class AttractiveOfferPage extends Base {
 	public void ClickOnregistration() throws InterruptedException
 	{	
 		Thread.sleep(4000);
-		GoToRegistration.click(); 
+		GoToRegistrationbtn.click(); 
 		//return new WelcomeForeverCommunityPage();
 		
 	}

@@ -25,6 +25,6 @@ public class LetsGoPage extends Base{
 	public void clickOnTheLetsGoButton()
 	{
 		LetsgoButton.click();
-		//return new AttractiveOfferPage(); 
+		
 	}
 }

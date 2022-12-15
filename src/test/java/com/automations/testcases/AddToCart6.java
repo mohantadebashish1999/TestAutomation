@@ -1,5 +1,6 @@
 package com.automations.testcases;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
 
 import org.testng.Assert;
@@ -12,42 +13,57 @@ import com.automations.pages.Base;
 import com.automations.pages.LetsGoPage;
 import com.automations.pages.PasswordPage;
 import com.automations.pages.StarterPackagesPage;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 
 
-/**
- * @author user
+/*
  * Users can skip the add to cart page. 
  */
 
 public class AddToCart6 extends Base {
 	
-	//Logger log = Logger
+	Logger log =Logger.getLogger(AddToCart6.class);
+
 	
 	@Test
 	
 	public void SkipAddingProducts() throws InterruptedException
 	{
-		//AddToCartPage ac = PageFactory.initElements(driver, AddToCartPage.class);
-		PasswordPage pp = PageFactory.initElements(driver, PasswordPage.class);
+		
+		PasswordPage passwordpage = PageFactory.initElements(driver, PasswordPage.class);
 
-		LetsGoPage lgp = PageFactory.initElements(driver, LetsGoPage.class);
-		AttractiveOfferPage afp = PageFactory.initElements(driver, AttractiveOfferPage.class);
-		AddToCartPage atc = PageFactory.initElements(driver, AddToCartPage.class);
-		//StarterPackagesPage spp = PageFactory.initElements(driver, StarterPackagesPage.class);
-		//AddToCartPopupPage acp = PageFactory.initElements(driver, AddToCartPopupPage.class);
+		LetsGoPage letsgopage = PageFactory.initElements(driver, LetsGoPage.class);
+		AttractiveOfferPage attractiveofferpage = PageFactory.initElements(driver, AttractiveOfferPage.class);
+		AddToCartPage addtocartpage = PageFactory.initElements(driver, AddToCartPage.class);
+		
 
-		pp.EnterPassword("Flp@2022#$");
+		passwordpage.enterPassword("Flp@2022#$");
 		
-		lgp.clickOnTheLetsGoButton();
-		boolean val=atc.validateAdd();
-		Assert.assertFalse(val);
+		letsgopage.clickOnTheLetsGoButton();
 		
+
+		attractiveofferpage.ClickonContinuebtn();
+
+		//validate if any products are added to cart before.
+		try{
+		boolean result=addtocartpage.validateAdd();
+		Assert.assertFalse(result);
+		log.info("--------products are already added to cart---------");
+		log.info("-----test case failed----------");
+		driver.close();
+		}
+		catch(Exception e)
+		{
+		addtocartpage.clickOnTheContinueButton();
 		
-		afp.ClickonContinuebtn();
-		atc.clickOnTheContinueButton();
 		String actualURL = driver.getCurrentUrl();
 		String expectedURL ="https://flp-de-sponsoring-dev.disellco.cloud/register/termcondition";
 		Assert.assertEquals(actualURL, expectedURL);
+		log.info("-----------Test case passed------------");
+		Thread.sleep(3000);
+		}
+	
+		
 	}
 
 }

@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 public class StarterPackagesPage extends Base {
 
 	@FindBy(xpath="//span[contains(text(),'Ja, ich nehme das Angebot gerne an')]") WebElement AcceptOffer;
+
+	@FindBy(xpath = "//span[contains(text(),'Weiter')]") WebElement continuebtn;
 	
 	
 	
@@ -19,5 +21,9 @@ public class StarterPackagesPage extends Base {
 	public boolean validatePage()
 	{
 		return AcceptOffer.isDisplayed();
+	}
+	public void clickOnContinuebtn()
+	{
+		continuebtn.click();
 	}
 }

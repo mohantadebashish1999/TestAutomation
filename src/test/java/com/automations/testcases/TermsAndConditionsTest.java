@@ -32,7 +32,7 @@ public class TermsAndConditionsTest extends Base{
 		TermsAndConditionsPage tac = PageFactory.initElements(driver, TermsAndConditionsPage.class);
 
 
-		pp.EnterPassword("Flp@2022#$");
+		pp.enterPassword("Flp@2022#$");
 		
 		lgp.clickOnTheLetsGoButton();
 		

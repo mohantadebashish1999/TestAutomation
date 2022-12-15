@@ -27,9 +27,6 @@ public class Password extends Base {
 	
 	Logger log =Logger.getLogger(Password.class);
 	
-	//WebDriver driver;
-	//PasswordPage passwordpagw;
-	//LetsGoPage lgp;
 	
 	@AfterMethod
 	public void teardown()
@@ -39,67 +36,21 @@ public class Password extends Base {
 	}
 	
 	
-	
-	
-	
 	@Test(priority=1)
 	
 	public void password() throws InterruptedException, IOException
 	{
-		//passwordpagw= new PasswordPage();
-		 //lgp = passwordpagw.EnterPassword("Flp@2022#$");
-		 
-		// ExtentTest test = extent.createTest("MyFirstTest","sample descripiton of the text");
-		// test.log(Status.INFO, "this is the log info(status, details)");
-		// test.info("This step shows usage of info(details)");
-		// test.fail("details", MediaEntityBuilder.createScreenCaptureFromPath("screenshot.png").build());
-		// test.addScreenCaptureFromPath("screenshot.png");
-		PasswordPage pp = PageFactory.initElements(driver, PasswordPage.class);
+		PasswordPage passwordpage = PageFactory.initElements(driver, PasswordPage.class);
 		LetsGoPage lp = PageFactory.initElements(driver, LetsGoPage.class);
-		pp.EnterPassword("Flp@2022#$");
+		// Enter password.s
+		passwordpage.enterPassword("Flp@2022#$");
+
+		// Validate if user is navigate to the next page. 
 		boolean result= lp.ValidateLetsGoPage();
 		Assert.assertTrue(result); 
 		log.info("*****************Test case passed. ******************");
-		
-		
-
-		
-
-		
+			
 	}
-	/*
-	this is just comment by kush.
 	
-	public void login() throws Exception  
-	{ 
-		
-		PasswordPage pp = PageFactory.initElements(driver, PasswordPage.class);
-		pp.EnterPassword1("Flp@2022#$");
-		System.out.println("entered password");
-		pp.clickonbutton();
-		System.out.println("clicked on the submit button");
-		Thread.sleep(6000);
-		
-		try   
-		  { 
-		if (driver.findElement(By.xpath("//h1[contains(text(),'Werde Teil der Forever Community')]")).isDisplayed())
-		{
-			pp.CLickOnTheLetsGoButton();
-			Thread.sleep(3000);
-			pp.clickOnTheContinueButton();
-			System.out.println("passed");
-		}
-		
-		  }
-		catch(Exception e)     
-		  {
-			System.out.println("failed");
-		  }
-		
-		
-		Thread.sleep(6000);
-		
-	}
-*/
 
 }

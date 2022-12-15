@@ -3,6 +3,7 @@
  */
 package com.automations.testcases;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -15,41 +16,43 @@ import com.automations.pages.LetsGoPage;
 import com.automations.pages.PasswordPage;
 import com.automations.pages.StarterPackagesPage;
 
-/**
- * @author user
+/*
  * Adding 2nd items in the cart is opening a popup.
  */
 public class AddToCartTest3 extends Base {
+	Logger log =Logger.getLogger(AddToCartTest3.class);
+
 
 	@Test
 	public void Openingpopup() throws InterruptedException
 	{
-		AddToCartPage ac = PageFactory.initElements(driver, AddToCartPage.class);
-		PasswordPage pp = PageFactory.initElements(driver, PasswordPage.class);
+		AddToCartPage addtocartpage = PageFactory.initElements(driver, AddToCartPage.class);
+		PasswordPage passwordpage = PageFactory.initElements(driver, PasswordPage.class);
 
-		LetsGoPage lgp = PageFactory.initElements(driver, LetsGoPage.class);
-		AttractiveOfferPage afp = PageFactory.initElements(driver, AttractiveOfferPage.class);
-		AddToCartPage atc = PageFactory.initElements(driver, AddToCartPage.class);
-		StarterPackagesPage spp = PageFactory.initElements(driver, StarterPackagesPage.class);
-		AddToCartPopupPage acp = PageFactory.initElements(driver, AddToCartPopupPage.class);
+		LetsGoPage letsgopage = PageFactory.initElements(driver, LetsGoPage.class);
+		AttractiveOfferPage attractiveofferpage = PageFactory.initElements(driver, AttractiveOfferPage.class);
+	
+		StarterPackagesPage starterpackagespage = PageFactory.initElements(driver, StarterPackagesPage.class);
+		AddToCartPopupPage addtocartpopuppage = PageFactory.initElements(driver, AddToCartPopupPage.class);
 
 		
 		
 		//WelcomeForeverCommunityPage wfcp = PageFactory.initElements(driver, WelcomeForeverCommunityPage.class);
 
 		
-		pp.EnterPassword("Flp@2022#$");
+		passwordpage.enterPassword("Flp@2022#$");
 		
-		lgp.clickOnTheLetsGoButton();
+		letsgopage.clickOnTheLetsGoButton();
 		
-		afp.ClickonContinuebtn();
+		attractiveofferpage.ClickonContinuebtn();
 		//ac.ClickOnAddTOCart();
 		//System.out.println("clicked");
-		atc.AddProduct1();
+		addtocartpage.addFirstProduct();
 		Thread.sleep(3000);
-		atc.AddProduct2();
-		boolean result= acp.validatePage();
+		addtocartpage.addSecondProduct();
+		boolean result= addtocartpopuppage.validatePage();
 		Assert.assertTrue(result);
+		log.info("---------------Test case passed.-------------");
 		Thread.sleep(5000);
 		
 	}

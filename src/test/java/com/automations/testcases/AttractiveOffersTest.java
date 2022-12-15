@@ -23,24 +23,27 @@ Logger log = Logger.getLogger(AttractiveOffersTest.class);
 	}
 	
 	@Test 
-	public void Community() throws InterruptedException
+	public void clickOnRegistrationButton() throws InterruptedException
 	{
-		PasswordPage pp = PageFactory.initElements(driver, PasswordPage.class);
+		PasswordPage passwordpage = PageFactory.initElements(driver, PasswordPage.class);
 
-		LetsGoPage lgp = PageFactory.initElements(driver, LetsGoPage.class);
-		AttractiveOfferPage afp = PageFactory.initElements(driver, AttractiveOfferPage.class);
+		LetsGoPage letsgopage = PageFactory.initElements(driver, LetsGoPage.class);
+		AttractiveOfferPage attractiveofferpage = PageFactory.initElements(driver, AttractiveOfferPage.class);
 		
 		//WelcomeForeverCommunityPage wfcp = PageFactory.initElements(driver, WelcomeForeverCommunityPage.class);
 
 		
-		pp.EnterPassword("Flp@2022#$");
+		passwordpage.enterPassword("Flp@2022#$");
 		
-		lgp.clickOnTheLetsGoButton();
+		letsgopage.clickOnTheLetsGoButton();
 		
-		afp.ClickOnregistration();
-		String expectedurl = "https://flp-de-sponsoring-dev.disellco.cloud/register/termcondition";
-		String currenturl = driver.getCurrentUrl();
-		Assert.assertEquals(currenturl, expectedurl);
+		attractiveofferpage.ClickOnregistration();
+
+		// Verifying after clicking on the registation button , the user is redirecting to the proper URL or page. 
+		
+		String expectedUrl = "https://flp-de-sponsoring-dev.disellco.cloud/register/termcondition";
+		String currentUrl = driver.getCurrentUrl();
+		Assert.assertEquals(currentUrl, expectedUrl);
 		log.info("============test case passed ==============");
 		
 		

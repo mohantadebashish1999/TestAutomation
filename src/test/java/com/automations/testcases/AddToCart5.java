@@ -1,8 +1,7 @@
-/**
- * 
- */
+
 package com.automations.testcases;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -16,57 +15,57 @@ import com.automations.pages.LetsGoPage;
 import com.automations.pages.PasswordPage;
 import com.automations.pages.StarterPackagesPage;
 
-/**
- * @author user
+/*
  * clicking on the change selection button from the popup will change the previously selected item
  */
 public class AddToCart5 extends Base{
+	Logger log =Logger.getLogger(AddToCart5.class);
+
 	
 	@Test
 	public void ChangeSelection() throws InterruptedException
 	{
-		AddToCartPage ac = PageFactory.initElements(driver, AddToCartPage.class);
-		PasswordPage pp = PageFactory.initElements(driver, PasswordPage.class);
+		AddToCartPage addtocartpage = PageFactory.initElements(driver, AddToCartPage.class);
+		PasswordPage passwordpage = PageFactory.initElements(driver, PasswordPage.class);
 
-		LetsGoPage lgp = PageFactory.initElements(driver, LetsGoPage.class);
-		AttractiveOfferPage afp = PageFactory.initElements(driver, AttractiveOfferPage.class);
-		AddToCartPage atc = PageFactory.initElements(driver, AddToCartPage.class);
-		StarterPackagesPage spp = PageFactory.initElements(driver, StarterPackagesPage.class);
-		AddToCartPopupPage acp = PageFactory.initElements(driver, AddToCartPopupPage.class);
+		LetsGoPage letsgopage = PageFactory.initElements(driver, LetsGoPage.class);
+		AttractiveOfferPage attractiveofferpage = PageFactory.initElements(driver, AttractiveOfferPage.class);
+		StarterPackagesPage starterpackagespage = PageFactory.initElements(driver, StarterPackagesPage.class);
+		AddToCartPopupPage addtocartpopuppage = PageFactory.initElements(driver, AddToCartPopupPage.class);
 
-		pp.EnterPassword("Flp@2022#$");
+		passwordpage.enterPassword("Flp@2022#$");
 		
-		lgp.clickOnTheLetsGoButton();
+		letsgopage.clickOnTheLetsGoButton();
 		
-		afp.ClickonContinuebtn();
+		attractiveofferpage.ClickonContinuebtn();
 		
-		atc.AddProduct1();
+		addtocartpage.addFirstProduct();
 		Thread.sleep(3000);
-		String txt= atc.gettext();
+		String txt= addtocartpage.getBtntextof1stProduct();
 		System.out.println("The text after adding the porduct: "+ txt);
-		atc.AddProduct2();
+		addtocartpage.addSecondProduct();
 		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		
-
-		acp.clickOnChangeSelectionButton();
+		//clicking on the proceed button from the popup.
+		addtocartpopuppage.clickOnChangeSelectionButton();
 		Thread.sleep(3000);
-		String txt1 = atc.gettext();
-		System.out.println("Text of product1 after clicking on the change selection button: "+ txt1);
-		String txt2 = atc.gettext2();
-		System.out.println("Text of product2 after clicking on the change selection button: "+ txt2);
+		String buttonText1stProd = addtocartpage.getBtntextof1stProduct();
+		System.out.println("Text of product1 after clicking on the change selection button: "+ buttonText1stProd);
+		String buttonText2ndProd = addtocartpage.getBtntextof2ndProduct();
+		System.out.println("Text of product2 after clicking on the change selection button: "+ buttonText2ndProd);
 		
-		int elementCounts= atc.countElement();
+		int elementCounts= addtocartpage.countElement();
 		System.out.println("count is: " + elementCounts);
 		if (elementCounts==1)
 		{
 			
-			Assert.assertEquals (txt2, "✔ Im Warenkorb");
-			System.out.println("passed");
+			Assert.assertEquals (buttonText2ndProd, "✔ Im Warenkorb");
+			log.info("---------Test case passed-----------");
 
 		}
 		else
-			System.out.println("failed");
+			log.info("--------Test case failed.-------------");
 		Thread.sleep(2000);
 
 		

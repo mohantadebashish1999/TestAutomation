@@ -1,8 +1,6 @@
 package com.automations.testcases;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -10,19 +8,22 @@ import org.testng.annotations.Test;
 import com.automations.pages.AddToCartPage;
 import com.automations.pages.AttractiveOfferPage;
 import com.automations.pages.Base;
+import com.automations.pages.EmailVerificationPopupPage;
 import com.automations.pages.Introducepage;
 import com.automations.pages.LetsGoPage;
 import com.automations.pages.PasswordPage;
 import com.automations.pages.StarterPackagesPage;
 import com.automations.pages.TermsAndConditionsPage;
 import com.automations.pages.Thankyoupage;
+import com.automations.pages.VerifyEmailPage;
 
-public class Introduce_validSponserid extends Base {
-    Logger log =Logger.getLogger(Introduce_validSponserid.class);
+public class EmailVerificationTest2 extends Base {
+    Logger log =Logger.getLogger(EmailVerificationTest2.class);
 
+    //checking with valid email id but different confirmemail id..
 
     @Test
-    public void checkWithValidSponserId() throws InterruptedException
+    public void DifferentEmails() throws InterruptedException
     {
         AddToCartPage addtocartpage = PageFactory.initElements(driver, AddToCartPage.class);
 		PasswordPage passwordpage = PageFactory.initElements(driver, PasswordPage.class);
@@ -36,17 +37,20 @@ public class Introduce_validSponserid extends Base {
         Introducepage introducepage = PageFactory.initElements(driver, Introducepage.class);
         Thankyoupage thankyoupage = PageFactory.initElements(driver, Thankyoupage.class);
         StarterPackagesPage starterpackagespage = PageFactory.initElements(driver, StarterPackagesPage.class);
+        VerifyEmailPage verifyemailpage = PageFactory.initElements(driver, VerifyEmailPage.class);
+        EmailVerificationPopupPage emailverificationpopuppage = PageFactory.initElements(driver, EmailVerificationPopupPage.class);
 
 
 		passwordpage.enterPassword("Flp@2022#$");
 		
 		letsgopage.clickOnTheLetsGoButton();
+        Thread.sleep(2000);
 		
 		attractiveofferpage.ClickonContinuebtn();
 		addtocartpage.addFirstProduct();
         Thread.sleep(2000);
-		boolean added= addtocartpage.validateAdd();
-		Assert.assertTrue(added);
+		//boolean added= addtocartpage.validateAdd();
+		//Assert.assertTrue(added);
 		addtocartpage.clickOnTheContinueButton();
         Thread.sleep(3000);
         starterpackagespage.clickOnContinuebtn();
@@ -65,13 +69,32 @@ public class Introduce_validSponserid extends Base {
 
         introducepage.ClickingContinue();
         Thread.sleep(2000);
+        thankyoupage.clickOnTheContinueBtn();
+        verifyemailpage.enterEmail("test@yopmail.com");
+        verifyemailpage.enterConfirmEmail("test123@yopmail.com");
+        verifyemailpage.clickOnContinueButton();
+
 
         //verifying clicking on the continue button it is going to the next page.
-       
-        Boolean result= thankyoupage.verify();
-        Assert.assertTrue(result);
-        Thread.sleep(5000);
-        log.info("*****************Test case passed ******************");
+        String errorMsg= verifyemailpage.errorMsg1();
+       // String errorMsg1= verifyemailpage.errorMsgConfirmEmail();
+        log.info("error message is: "+ errorMsg);
+        //log.info("error message on the confirm email field is: "+errorMsg1);
+        try
+        {
+            boolean result= emailverificationpopuppage.verifyPage();
+            Assert.assertTrue(result);
+            log.info("-----------Test case failed.--------");
 
+        }
+        catch(Exception e)
+        {
+            log.info("---------Test case passed----------");
+        }
+       
+       
+        
     }
+
+    
 }

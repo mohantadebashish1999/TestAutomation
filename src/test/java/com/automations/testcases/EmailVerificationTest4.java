@@ -1,8 +1,6 @@
 package com.automations.testcases;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -10,19 +8,24 @@ import org.testng.annotations.Test;
 import com.automations.pages.AddToCartPage;
 import com.automations.pages.AttractiveOfferPage;
 import com.automations.pages.Base;
+import com.automations.pages.EmailVerificationPopupPage;
 import com.automations.pages.Introducepage;
 import com.automations.pages.LetsGoPage;
 import com.automations.pages.PasswordPage;
 import com.automations.pages.StarterPackagesPage;
 import com.automations.pages.TermsAndConditionsPage;
 import com.automations.pages.Thankyoupage;
+import com.automations.pages.VerifyEmailPage;
+import com.github.javafaker.Faker;
 
-public class Introduce_validSponserid extends Base {
-    Logger log =Logger.getLogger(Introduce_validSponserid.class);
+public class EmailVerificationTest4 extends Base {
+    
+    Logger log =Logger.getLogger(EmailVerificationTest4.class);
 
+    //checking with new email address. 
 
     @Test
-    public void checkWithValidSponserId() throws InterruptedException
+    public void newEmails() throws InterruptedException
     {
         AddToCartPage addtocartpage = PageFactory.initElements(driver, AddToCartPage.class);
 		PasswordPage passwordpage = PageFactory.initElements(driver, PasswordPage.class);
@@ -36,17 +39,20 @@ public class Introduce_validSponserid extends Base {
         Introducepage introducepage = PageFactory.initElements(driver, Introducepage.class);
         Thankyoupage thankyoupage = PageFactory.initElements(driver, Thankyoupage.class);
         StarterPackagesPage starterpackagespage = PageFactory.initElements(driver, StarterPackagesPage.class);
+        VerifyEmailPage verifyemailpage = PageFactory.initElements(driver, VerifyEmailPage.class);
+        EmailVerificationPopupPage emailverificationpopuppage = PageFactory.initElements(driver, EmailVerificationPopupPage.class);
 
 
 		passwordpage.enterPassword("Flp@2022#$");
 		
 		letsgopage.clickOnTheLetsGoButton();
+        Thread.sleep(2000);
 		
 		attractiveofferpage.ClickonContinuebtn();
 		addtocartpage.addFirstProduct();
         Thread.sleep(2000);
-		boolean added= addtocartpage.validateAdd();
-		Assert.assertTrue(added);
+		//boolean added= addtocartpage.validateAdd();
+		//Assert.assertTrue(added);
 		addtocartpage.clickOnTheContinueButton();
         Thread.sleep(3000);
         starterpackagespage.clickOnContinuebtn();
@@ -65,13 +71,41 @@ public class Introduce_validSponserid extends Base {
 
         introducepage.ClickingContinue();
         Thread.sleep(2000);
+        thankyoupage.clickOnTheContinueBtn();
+        //creating random emails using java facker
+        Faker faker = new Faker();
+        String firstName= faker.name().firstName();
+        String lastName = faker.name().lastName();
+        String email = firstName.toLowerCase() +"."+lastName.toLowerCase() + "@yopmail.com";
+        System.out.println(email);
 
-        //verifying clicking on the continue button it is going to the next page.
+        verifyemailpage.enterEmail(email);
+        verifyemailpage.enterConfirmEmail(email);
+        verifyemailpage.clickOnContinueButton();
+
+
+        //verifying clicking on the continue button is displaying the respective popup pages. 
        
-        Boolean result= thankyoupage.verify();
-        Assert.assertTrue(result);
-        Thread.sleep(5000);
-        log.info("*****************Test case passed ******************");
+            boolean result= emailverificationpopuppage.verifyEmailSentPopup();
+            Assert.assertTrue(result);
+            //emailverificationpopuppage.clickOnSubmitBtn();
+            //boolean emailsentIsdisplayed = emailverificationpopuppage.verifyEmailSentPopup();
+           // Assert.assertTrue(emailsentIsdisplayed);
+           Thread.sleep(3000);
+            emailverificationpopuppage.clickOnCrossIcon();
+            Thread.sleep(2000);
+            boolean emailPagedisplayed= verifyemailpage.verifyPage();
+            Assert.assertTrue(emailPagedisplayed);
+            
+            log.info("--------------test case passed------------");
 
+
+       
+        Thread.sleep(5000);
+       
+        
     }
+
+    
+    
 }

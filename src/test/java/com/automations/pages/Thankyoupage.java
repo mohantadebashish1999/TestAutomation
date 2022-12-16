@@ -21,4 +21,8 @@ public boolean verify()
 {
     return ThankyouText.isDisplayed();
 }
+public void clickOnTheContinueBtn()
+{
+    continuebtn.click();
+}
 }

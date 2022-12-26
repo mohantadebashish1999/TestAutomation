@@ -7,12 +7,14 @@ com\automations\pages\AttractiveOfferPage.class
 com\automations\pages\SetPasswordPage.class
 com\automations\testcases\TermsAndConditionsTest2.class
 com\automations\pages\Thankyoupage.class
+com\automations\pages\PersonalDataPage.class
 com\automations\testcases\SetPasswordTest1.class
 com\automations\pages\EmailTabPage.class
 com\automations\testcases\AddToCartTest3.class
 com\automations\testcases\AttractiveOffersTest02.class
 com\automations\testcases\AddToCart6.class
 com\automations\utilities\BrowserFactory.class
+com\automations\testcases\SetPasswordTest2.class
 com\automations\testcases\AddToCart5.class
 com\automations\testcases\LetGoTest.class
 com\automations\testcases\UnknownSponser.class

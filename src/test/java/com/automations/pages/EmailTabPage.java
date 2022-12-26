@@ -48,5 +48,9 @@ public class EmailTabPage extends Base{
     {
         firstEmail.click();
     }
+    public boolean clickHereLinkisDisplayed()
+    {
+        return clickhereBtn.isDisplayed();
+    }
     
 }

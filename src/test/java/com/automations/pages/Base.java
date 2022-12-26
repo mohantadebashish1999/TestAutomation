@@ -36,7 +36,7 @@ public class Base {
 	{
 
 		driver=BrowserFactory.startApplication(driver, "chrome", "https://flp-de-sponsoring-dev.disellco.cloud/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
 
 

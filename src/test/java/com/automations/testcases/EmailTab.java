@@ -122,6 +122,8 @@ public class EmailTab extends Base {
         if (emailcount >= 1) {
 
             driver.switchTo().frame("ifmail");
+            Boolean emailtabisdisplayed = emailtabpage.clickHereLinkisDisplayed();
+            Assert.assertTrue(emailtabisdisplayed);
             emailtabpage.clickHereBtn();
 
         } else {

@@ -21,13 +21,13 @@ import com.automations.pages.StarterPackagesPage;
 import com.automations.pages.TermsAndConditionsPage;
 import com.automations.pages.Thankyoupage;
 import com.automations.pages.VerifyEmailPage;
+import com.beust.jcommander.internal.Console;
 import com.github.javafaker.Faker;
 
-public class SetPasswordTest1 extends Base {
+public class SetPasswordTest2 extends Base {
+    Logger log = Logger.getLogger(SetPasswordTest2.class);
 
-    Logger log = Logger.getLogger(SetPasswordTest1.class);
-
-    // set valid password...
+    // set different password and confirm password....
     @Test
     public void setValidPassword() throws InterruptedException {
         AddToCartPage addtocartpage = PageFactory.initElements(driver, AddToCartPage.class);
@@ -141,21 +141,30 @@ public class SetPasswordTest1 extends Base {
         Assert.assertTrue(setpasswordpagedisplayed);
 
         //setting valid password.
-       // Thread.sleep(2000);
         setpasswordpage.setPassword("Demo@123");
-        //Thread.sleep(2000);
-        setpasswordpage.setConfirmPassword("Demo@123");
+        setpasswordpage.setConfirmPassword("Demo@1234");
         Thread.sleep(3000);
         setpasswordpage.clickonNextButton();
+        String errorMsg= setpasswordpage.captureErrorMessage2();
+        log.info("error message is : "+errorMsg);
+        try
+        {
+            boolean onthesamepage = setpasswordpage.verifySetPasswordPage();
+            Assert.assertTrue(onthesamepage);
+            log.info("Test case passed...");
+        }
+        catch(Exception e)
+        {
         boolean isdetailspagedisplayed= personaldatapage.verifyPage();
         Assert.assertTrue(isdetailspagedisplayed);
         log.info("Details page displayed........");
+        log.info("Test case failed.........");
+        }
 
 
-        log.info("Test case passed...");
+        
         Thread.sleep(4000);
 
     }
-
     
 }

@@ -12,6 +12,7 @@ public class BrowserFactory {
 		if(browserName.equals("chrome"))
 		{	
 			System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+			System.setProperty("webdriver.chrome.silentOutput","true");
 			driver = new ChromeDriver();
 		}
 		else if(browserName.equals("firefox"))
@@ -26,11 +27,11 @@ public class BrowserFactory {
 		{
 			System.out.println("Sorry we donot support this browser"); 	
 		}
-		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);    
+		//driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);    
 
 		driver.manage().window().maximize();
 		driver.get(Url);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); 
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); 
 		
 		return driver;
 	} 

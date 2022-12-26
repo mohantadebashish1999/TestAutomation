@@ -44,8 +44,8 @@ public class AddToCart extends Base {
 		//ac.ClickOnAddTOCart();
 		//System.out.println("clicked");
 		addtocartpage.addFirstProduct();
-		boolean addedProductToCart= addtocartpage.validateAdd();
-		Assert.assertTrue(addedProductToCart);
+		boolean result= addtocartpage.validateAdd();
+		Assert.assertTrue(result);
 		addtocartpage.clickOnTheContinueButton();
 		boolean verifyPage= starterpackagespage.validatePage();
 		Assert.assertTrue(verifyPage);

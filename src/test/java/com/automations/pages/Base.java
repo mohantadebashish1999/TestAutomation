@@ -3,6 +3,7 @@ package com.automations.pages;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -35,6 +36,7 @@ public class Base {
 	{
 
 		driver=BrowserFactory.startApplication(driver, "chrome", "https://flp-de-sponsoring-dev.disellco.cloud/");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
 
 

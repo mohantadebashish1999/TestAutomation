@@ -43,6 +43,10 @@ public class SetPasswordPage extends Base {
     {
         return confirmpassworderrormsg.getText();
     }
+    public String CaptureErrorMsg()
+    {
+        return passworderrormsg.getText();
+    }
    
     
 }

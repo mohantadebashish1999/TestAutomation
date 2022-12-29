@@ -25,7 +25,11 @@ import com.aventstack.extentreports.Status;
 
 public class Password extends Base {
 	
-	Logger log =Logger.getLogger(Password.class);
+	 Logger log =Logger.getLogger(Password.class);
+	 public Password()
+	 {
+		PageFactory.initElements(driver, this);
+	 }
 	
 	
 	@AfterMethod
@@ -48,7 +52,7 @@ public class Password extends Base {
 		// Validate if user is navigate to the next page. 
 		boolean result= lp.ValidateLetsGoPage();
 		Assert.assertTrue(result); 
-		log.info("*****************Test case passed. ******************");
+		//log.info("*****************Test case passed. ******************");
 			
 	}
 	

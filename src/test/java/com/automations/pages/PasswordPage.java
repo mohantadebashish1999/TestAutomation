@@ -26,6 +26,7 @@ public class PasswordPage extends Base {
 	}
 
 	public void enterPassword(String pass) throws InterruptedException {
+		
 		Password.sendKeys(pass);
 		Thread.sleep(2000);
 		continueButton.click();

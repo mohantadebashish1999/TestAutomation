@@ -2,11 +2,7 @@ package com.automations.testcases;
 
 import java.util.ArrayList;
 
-import javax.lang.model.util.ElementScanner14;
-
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -19,20 +15,21 @@ import com.automations.pages.EmailVerificationPopupPage;
 import com.automations.pages.Introducepage;
 import com.automations.pages.LetsGoPage;
 import com.automations.pages.PasswordPage;
+import com.automations.pages.PersonalDataPage;
 import com.automations.pages.SetPasswordPage;
 import com.automations.pages.StarterPackagesPage;
 import com.automations.pages.TermsAndConditionsPage;
 import com.automations.pages.Thankyoupage;
 import com.automations.pages.VerifyEmailPage;
+import com.beust.jcommander.internal.Console;
 import com.github.javafaker.Faker;
 
-public class EmailTab extends Base {
-    Logger log = Logger.getLogger(EmailTab.class);
+public class SetPasswordTest3 extends Base {
+    Logger log = Logger.getLogger(SetPasswordTest3.class);
 
-    // checking with new email address.
-
+    // set invalid password and confirm password not fullfilled the requirements....
     @Test
-    public void openEmailTab() throws InterruptedException {
+    public void setValidPassword() throws InterruptedException {
         AddToCartPage addtocartpage = PageFactory.initElements(driver, AddToCartPage.class);
         PasswordPage passwordpage = PageFactory.initElements(driver, PasswordPage.class);
 
@@ -43,10 +40,10 @@ public class EmailTab extends Base {
         Thankyoupage thankyoupage = PageFactory.initElements(driver, Thankyoupage.class);
         StarterPackagesPage starterpackagespage = PageFactory.initElements(driver, StarterPackagesPage.class);
         VerifyEmailPage verifyemailpage = PageFactory.initElements(driver, VerifyEmailPage.class);
-        EmailVerificationPopupPage emailverificationpopuppage = PageFactory.initElements(driver,
-                EmailVerificationPopupPage.class);
+        EmailVerificationPopupPage emailverificationpopuppage = PageFactory.initElements(driver,EmailVerificationPopupPage.class);
         EmailTabPage emailtabpage = PageFactory.initElements(driver, EmailTabPage.class);
         SetPasswordPage setpasswordpage = PageFactory.initElements(driver, SetPasswordPage.class);
+        PersonalDataPage personaldatapage = PageFactory.initElements(driver, PersonalDataPage.class);
 
         passwordpage.enterPassword("Flp@2022#$");
 
@@ -119,6 +116,7 @@ public class EmailTab extends Base {
             
             driver.close();
         }
+        Thread.sleep(3000);
         driver.switchTo().frame("ifinbox");
         int emailcount = emailtabpage.countEmails();
         log.info("emails count is :" + emailcount);
@@ -147,9 +145,35 @@ public class EmailTab extends Base {
         // System.out.println("Page title of new tab: " + driver.getTitle());
         boolean setpasswordpagedisplayed = setpasswordpage.verifySetPasswordPage();
         Assert.assertTrue(setpasswordpagedisplayed);
-        log.info("Test case passed...");
+
+        //setting invalid password
+        setpasswordpage.setPassword("Demo");
+        setpasswordpage.setConfirmPassword("Demo");
+        Thread.sleep(3000);
+        setpasswordpage.clickonNextButton();
+
+        //capturing error message from the password field.
+        String errorMsg= setpasswordpage.CaptureErrorMsg();
+        
+        log.info("error message is : "+errorMsg);
+        try
+        {
+            boolean onthesamepage = setpasswordpage.verifySetPasswordPage();
+            Assert.assertTrue(onthesamepage);
+            log.info("Test case passed...");
+        }
+        catch(Exception e)
+        {
+        boolean isdetailspagedisplayed= personaldatapage.verifyPage();
+        Assert.assertTrue(isdetailspagedisplayed);
+        log.info("Details page displayed........");
+        log.info("Test case failed.........");
+        }
+
+
+        
         Thread.sleep(4000);
 
     }
-
+    
 }

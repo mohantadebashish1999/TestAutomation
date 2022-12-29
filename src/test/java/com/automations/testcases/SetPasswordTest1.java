@@ -102,15 +102,21 @@ public class SetPasswordTest1 extends Base {
         driver.get("https://yopmail.com/");
         emailtabpage.checkEmail(email);
         try {
-            // boolean robotpopup= emailtabpage.robotdialogisdisplayed();
-            // Assert.assertTrue(robotpopup);
+            boolean robotpopup= emailtabpage.robotdialogisdisplayed();
+            if (robotpopup)
+            {
             emailtabpage.clickonNotanRobot();
             log.info("-----clicked on the i am not an robot option--------");
-        } catch (Exception e) {
+            }
+            else
             log.info("------i am not an robot popup is not there------");
-            log.info("inside catch block");
+            
+            // Assert.assertTrue(robotpopup);
+        } catch (Exception e) {
+            
+            driver.close();
         }
-
+        Thread.sleep(3000);
         driver.switchTo().frame("ifinbox");
         int emailcount = emailtabpage.countEmails();
         log.info("emails count is :" + emailcount);

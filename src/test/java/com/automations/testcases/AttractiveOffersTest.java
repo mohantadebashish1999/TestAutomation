@@ -1,5 +1,7 @@
 package com.automations.testcases;
 
+import java.io.IOException;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -23,19 +25,24 @@ Logger log = Logger.getLogger(AttractiveOffersTest.class);
 	}
 	
 	@Test 
-	public void clickOnRegistrationButton() throws InterruptedException
+	public void clickOnRegistrationButton() throws InterruptedException, IOException
 	{
-		PasswordPage passwordpage = PageFactory.initElements(driver, PasswordPage.class);
+		//PasswordPage passwordpage = PageFactory.initElements(driver, PasswordPage.class);
 
-		LetsGoPage letsgopage = PageFactory.initElements(driver, LetsGoPage.class);
+		//LetsGoPage letsgopage = PageFactory.initElements(driver, LetsGoPage.class);
 		AttractiveOfferPage attractiveofferpage = PageFactory.initElements(driver, AttractiveOfferPage.class);
+		//Password password1 = PageFactory.initElements(driver, Password.class);
+		LetGoTest letsgo = PageFactory.initElements(driver, LetGoTest.class);
 		
 		//WelcomeForeverCommunityPage wfcp = PageFactory.initElements(driver, WelcomeForeverCommunityPage.class);
 
 		
-		passwordpage.enterPassword("Flp@2022#$");
+		//passwordpage.enterPassword("Flp@2022#$");
+		//password1.password();
+		//Thread.sleep(2000);
+		letsgo.clickOnButton();
 		
-		letsgopage.clickOnTheLetsGoButton();
+		//letsgopage.clickOnTheLetsGoButton();
 		
 		attractiveofferpage.ClickOnregistration();
 

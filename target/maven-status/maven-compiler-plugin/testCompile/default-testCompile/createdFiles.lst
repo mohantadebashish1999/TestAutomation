@@ -1,12 +1,15 @@
+com\automations\testcases\SetPasswordTest3.class
 com\automations\pages\StarterPackagesPage.class
 com\automations\testcases\AttractiveOffersTest.class
 com\automations\testcases\EmailVerificationTest4.class
 com\automations\testcases\EmailVerificationTest2.class
 com\automations\pages\WelcomeForeverCommunityPage.class
 com\automations\pages\AttractiveOfferPage.class
+com\automations\testcases\SetPersonalDetailsTest2.class
 com\automations\pages\SetPasswordPage.class
 com\automations\testcases\TermsAndConditionsTest2.class
 com\automations\pages\Thankyoupage.class
+com\automations\testcases\Testfaker.class
 com\automations\pages\PersonalDataPage.class
 com\automations\testcases\SetPasswordTest1.class
 com\automations\pages\EmailTabPage.class
@@ -20,6 +23,9 @@ com\automations\testcases\LetGoTest.class
 com\automations\testcases\UnknownSponser.class
 com\automations\pages\Introducepage.class
 com\automations\testcases\Introduce_validSponserid.class
+com\automations\testcases\SetPersonalDetailsTest1.class
+com\automations\testcases\SetPasswordTest4.class
+com\automations\pages\BankingPage.class
 com\automations\pages\VerifyEmailPage.class
 com\automations\pages\PasswordPage.class
 com\automations\pages\TermsAndConditionsPage.class
@@ -30,7 +36,9 @@ com\automations\pages\Base.class
 com\automations\testcases\EmailVerificationTest1.class
 com\automations\testcases\AddToCart.class
 com\automations\testcases\Introduce_InvalidSponserId.class
+com\automations\testcases\SetPersonalDetailsTest3.class
 com\automations\testcases\AddToCartTest2.class
+com\automations\utilities\TestData.class
 com\automations\testcases\TermsAndConditionsTest.class
 com\automations\pages\EmailVerificationPopupPage.class
 com\automations\testcases\AddToCartTest4.class
